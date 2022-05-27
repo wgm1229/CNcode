@@ -7,8 +7,7 @@ module.exports = {
     "extends": [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:react/jsx-runtime'
+        'plugin:react/jsx-runtime',
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,10 +17,12 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
-        '@typescript-eslint/no-non-null-assertion': 'off',
+        "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+        "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
         "no-debugger": 'off',
     },
     "settings": {

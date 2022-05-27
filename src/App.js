@@ -1,9 +1,17 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./views/Home";
 function App () {
-  debugger
   return (
-    <div className="App">
-      111
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
