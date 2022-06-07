@@ -27,7 +27,6 @@ const TopNav = () => {
   const onClick = (e) => {
     setCurrent(e.key);
     navigate(`/${e.key}`)
-    // console.log('click ', e);
   };
 
   return (
