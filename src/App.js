@@ -7,8 +7,7 @@ import HomeBox from "./views/home/Home";
 import Top from "./views/TopNav/TopNav.jsx";
 import About from './views/about/About.jsx'
 import Course from './views/course/Course.jsx'
-import All from "./views/all/All";
-import Good from "./views/good/Good";
+import SimplifyList from "./views/list/List";
 function App () {
   return (
     <BrowserRouter>
@@ -16,8 +15,7 @@ function App () {
       <Routes>
         <Route path="/" element={<HomeBox />}></Route>
         <Route path="/home" element={<HomeBox />}>
-          <Route index path="all" element={<All />} />
-          <Route path="good" element={<Good />} />
+          <Route index path=":type" element={<SimplifyList />} />
         </Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/course" element={<Course />}></Route>

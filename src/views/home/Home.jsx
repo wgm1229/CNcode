@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 import Footer from "../../components/footer/Footer"
-import './Home.scss'
+import './home.scss'
 function Home () {
   const leftNav = [
     { label: '全部', path: 'all' },

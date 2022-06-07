@@ -1,6 +1,6 @@
 function Course () {
   return (
-    <div>Course</div>
+    <div>course</div>
   )
 }
 export default Course
