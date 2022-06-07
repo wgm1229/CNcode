@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu } from 'antd';
 import { HomeOutlined, BookOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
 import './TopNav.scss'
 const items = [
   {
@@ -10,7 +11,7 @@ const items = [
   },
   {
     label: '教程',
-    key: 'learn',
+    key: 'course',
     icon: <BookOutlined />,
   },
   {
@@ -21,11 +22,12 @@ const items = [
 ];
 
 const TopNav = () => {
-  const [current, setCurrent] = useState('mail');
-
+  const navigate = useNavigate()
+  const [current, setCurrent] = useState('home');
   const onClick = (e) => {
-    console.log('click ', e);
     setCurrent(e.key);
+    navigate(`/${e.key}`)
+    // console.log('click ', e);
   };
 
   return (
