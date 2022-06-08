@@ -1,18 +1,26 @@
-import { Avatar, List, Skeleton } from 'antd';
+import { Avatar, List, Tag } from 'antd';
 import { useEffect, useState } from 'react';
 import './list.scss'
 import { getTopics } from '../../api/api'
-const count = 3;
-const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [list, setList] = useState([]);
+  const [page, setPage] = useState(1)
+  const pagination = {
+    total: 1000,
+    defaultPageSize: 20,
+    defaultCurrent: 1,
+    showSizeChanger: false,
+    onChange: (currentPage) => {
+      setPage(currentPage)
+    }
+  }
   const getList = () => {
     let params = {
-      page: 1,
-      limit: 10,
-      tab: 'all'
+      page: page,
+      limit: 20,
+      tab: 'all',
     }
     getTopics(params).then(res => {
       if (res.data.success) {
@@ -26,38 +34,47 @@ const SimplifyList = () => {
       })
   }
   useEffect(() => {
-    // fetch(fakeDataUrl)
-    //   .then((res) => res.json())
-    //   .then((res) => {
-
-    //     setList(res.results);
-    //   });
     getList()
-  }, []);
-
+  }, [page]);
 
   return (
     <List
       className="list"
       loading={initLoading}
+      pagination={pagination}
       itemLayout="horizontal"
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-          actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+          actions={['回复：' + item.reply_count, '访问：' + item.visit_count]}
         >
-          <Skeleton avatar title={false} loading={item.loading} active>
-            <List.Item.Meta
-              avatar={<Avatar src={item.author.avatar_url} />}
-              title={item.title}
-              description={item.loginname}
-              actions={[<span key={item.reply_count}>{'回复：' + item.reply_count}</span>, '访问：' + item.visit_count]}
-            />
-            {/* <div>content</div> */}
-          </Skeleton>
+          <List.Item.Meta
+            avatar={<Avatar src={item.author.avatar_url} />}
+            title={
+              <p>
+                {item.top &&
+                  <Tag className='topTag' color="green">置顶</Tag>
+                }
+                {item.good &&
+                  <Tag color="green">精华 </Tag>}
+                {item.tab === 'share' &&
+                  <Tag color="purple">分享</Tag>}
+                {item.tab === 'ask' &&
+                  <Tag color="blue">问答</Tag>}
+                <span className='list_item_title'>{item.title}</span>
+              </p>
+            }
+            description={
+              <p>
+                <span className='name'>{item.author.loginname}</span>
+                <span>发表于：{item.create_at.split('T')[0]}</span>
+              </p>
+            }
+          />
         </List.Item>
       )}
-    />
+    >
+    </List>
   );
 };
 
