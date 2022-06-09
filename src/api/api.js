@@ -4,7 +4,7 @@ import request from './axios'
 export const getTopics = (params) => {
   return request.get('/api/v1/topics', { params })
 }
-//获取主题详情
+//获取文章详情
 export const getTopicDetail = (id) => {
   return request.get(`/api/v1/topic/${id}`)
 }

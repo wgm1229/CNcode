@@ -8,6 +8,7 @@ import Top from "./views/TopNav/TopNav.jsx";
 import About from './views/about/About.jsx'
 import Course from './views/course/Course.jsx'
 import SimplifyList from "./views/list/List";
+import Article from "./views/home/article/Article";
 function App () {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App () {
         <Route path="/home" element={<HomeBox />}>
           <Route index path=":type" element={<SimplifyList />} />
         </Route>
+        <Route path="/article/:id" element={<Article />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/course" element={<Course />}></Route>
       </Routes>

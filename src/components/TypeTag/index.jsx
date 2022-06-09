@@ -5,6 +5,10 @@ const getType = (data) => {
   let type = data.top ? 'top' : data.good ? 'good' : data.tab || 'share'
   return topicType.filter(item => item.value === type)[0]
 }
+/** tag标签
+ * @param {Object} props 
+ * @returns html
+ */
 function typeTag (props) {
   const tag = getType(props.data)
   return (

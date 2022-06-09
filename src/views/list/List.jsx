@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './list.scss'
 import { getTopics } from '../../api/api'
 import TypeTag from '../../components/TypeTag';
+import { Link } from 'react-router-dom';
 
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
@@ -53,10 +54,12 @@ const SimplifyList = () => {
           <List.Item.Meta
             avatar={<Avatar src={item.author.avatar_url} />}
             title={
-              <p>
+              // <p>
+              <Link to={`/article/${item.id}`}>
                 <TypeTag data={item}></TypeTag>
                 <span className='list_item_title'>{item.title}</span>
-              </p>
+              </Link>
+              // </p>
             }
             description={
               <p>
