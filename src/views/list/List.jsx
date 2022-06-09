@@ -2,6 +2,7 @@ import { Avatar, List, Tag } from 'antd';
 import { useEffect, useState } from 'react';
 import './list.scss'
 import { getTopics } from '../../api/api'
+import TypeTag from '../../components/TypeTag';
 
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
@@ -35,6 +36,7 @@ const SimplifyList = () => {
   }
   useEffect(() => {
     getList()
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (
@@ -52,15 +54,7 @@ const SimplifyList = () => {
             avatar={<Avatar src={item.author.avatar_url} />}
             title={
               <p>
-                {item.top &&
-                  <Tag className='topTag' color="green">置顶</Tag>
-                }
-                {item.good &&
-                  <Tag color="green">精华 </Tag>}
-                {item.tab === 'share' &&
-                  <Tag color="purple">分享</Tag>}
-                {item.tab === 'ask' &&
-                  <Tag color="blue">问答</Tag>}
+                <TypeTag data={item}></TypeTag>
                 <span className='list_item_title'>{item.title}</span>
               </p>
             }

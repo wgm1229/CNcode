@@ -31,7 +31,7 @@ const topicType = [
   {
     value: 'top',
     label: '置顶',
-    color: 'green'
+    color: '#80bd01'
   }
 ]
 
