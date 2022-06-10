@@ -4,7 +4,7 @@ function Author (props) {
   const data = props.data
   return (
     <span>
-      <Avatar src={data.avatar_url} />
+      {data.avatar_url && <Avatar className='profilepicture' src={data.avatar_url} />}
       <span className='name'>{data.loginname}</span>
       <span className='time'>
         {!data.hiddenText && <span>发表于：</span>}

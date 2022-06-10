@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './list.scss'
 import { getTopics } from '../../api/api'
 import TypeTag from '../../components/TypeTag';
+import Author from '../../components/atuhor/Author';
 
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
@@ -61,10 +62,10 @@ const SimplifyList = () => {
               </Link>
             }
             description={
-              <p>
-                <span className='name'>{item.author.loginname}</span>
-                <span>发表于：{item.create_at.split('T')[0]}</span>
-              </p>
+              <Author data={{
+                loginname: item.author.loginname,
+                create_at: item.create_at
+              }} />
             }
           />
         </List.Item>
