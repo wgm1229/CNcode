@@ -21,3 +21,11 @@ $dark: rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
 }
+
+%name {
+  color: $success;
+}
+
+%time {
+  color: $dark;
+}

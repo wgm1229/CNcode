@@ -1,15 +1,16 @@
-import { Avatar, List, Tag } from 'antd';
+import { Avatar, List } from 'antd';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './list.scss'
 import { getTopics } from '../../api/api'
 import TypeTag from '../../components/TypeTag';
-import { Link } from 'react-router-dom';
 
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1)
   const pagination = {
+    size: 'small',
     total: 1000,
     defaultPageSize: 20,
     defaultCurrent: 1,
@@ -54,12 +55,10 @@ const SimplifyList = () => {
           <List.Item.Meta
             avatar={<Avatar src={item.author.avatar_url} />}
             title={
-              // <p>
               <Link to={`/article/${item.id}`}>
                 <TypeTag data={item}></TypeTag>
                 <span className='list_item_title'>{item.title}</span>
               </Link>
-              // </p>
             }
             description={
               <p>

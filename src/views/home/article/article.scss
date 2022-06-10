@@ -1,4 +1,27 @@
+@use '../../../static/scss/flex.scss' as flex;
+
 .article {
   height: 100%;
   padding: 10px 15%;
+  overflow: auto;
+
+  .ant-card {
+    .content {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .reply {
+    .ant-card-head {
+      background-color: #fafafa;
+      font-weight: bold;
+    }
+
+    .reply_user {
+      @extend %flexC;
+      justify-content: space-between;
+    }
+  }
 }

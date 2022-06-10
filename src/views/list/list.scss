@@ -16,13 +16,7 @@
       width: 100%;
 
       .ant-list-item-meta-title {
-        color: flex.$dark;
-      }
-
-      .ant-tag {
-        width: 40px;
-        font-size: 12px;
-        border-radius: 5px;
+        @extend %time;
       }
 
       .list_item_title {
@@ -31,7 +25,7 @@
 
       .name {
         margin-right: 10px;
-        color: flex.$success;
+        @extend %name;
       }
     }
   }

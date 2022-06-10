@@ -1,0 +1,10 @@
+@use '../../static/scss/flex.scss' as flex;
+
+.name {
+  @extend %name;
+  margin: 0 5px;
+}
+
+.time {
+  @extend %time;
+}
