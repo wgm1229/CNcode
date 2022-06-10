@@ -1,6 +1,7 @@
 import { Avatar, List } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux'
 import './list.scss'
 import { getTopics } from '../../api/api'
 import TypeTag from '../../components/TypeTag';
@@ -10,6 +11,7 @@ const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1)
+  const tab = useSelector(state => state.home.tab)
   const pagination = {
     size: 'small',
     total: 1000,
@@ -24,7 +26,7 @@ const SimplifyList = () => {
     let params = {
       page: page,
       limit: 20,
-      tab: 'all',
+      tab: tab,
     }
     getTopics(params).then(res => {
       if (res.data.success) {
@@ -40,7 +42,7 @@ const SimplifyList = () => {
   useEffect(() => {
     getList()
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, tab]);
 
   return (
     <List
