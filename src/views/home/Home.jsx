@@ -1,11 +1,12 @@
 import { Fragment, useState } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useParams } from "react-router-dom"
 import Footer from "../../components/footer/Footer"
 import topicType from "../../static/js/topicType"
 import './home.scss'
 function Home () {
   const leftNav = topicType
-  const [acvtiveNav, setAcvtiveNav] = useState('all')
+  let { type } = useParams()
+  const [acvtiveNav, setAcvtiveNav] = useState(type)
   return (
     <Fragment>
       <div className="home">
