@@ -1,5 +1,6 @@
 import { Avatar, Card, List } from "antd"
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
 import { getUser } from '../../api/api'
 import Author from "../../components/atuhor/Author"
@@ -8,6 +9,7 @@ function User () {
   let { loginname } = useParams()
   const [userdata, setuserdata] = useState({});
   const [loading, setloading] = useState(true);
+  const userid = useSelector(state => state.user.userid)
   useEffect(() => {
     getUser(loginname).then(res => {
       if (res.data.success) {
@@ -18,7 +20,7 @@ function User () {
       }
     }).catch((err) => console.log(err))
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [userid])
   return (
     <div className="user">
       {!loading && <div>

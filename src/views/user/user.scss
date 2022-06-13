@@ -3,6 +3,7 @@
 .user {
   height: 100%;
   padding: 10px 15%;
+  overflow: auto;
 
   .top {
     .ant-card-body {
@@ -46,7 +47,7 @@
     .ant-card-body {
       padding: 0 20px;
 
-      .ant-list-item-meta-title {
+      .ant-list-item-meta-title a {
         cursor: pointer;
 
         &:hover {

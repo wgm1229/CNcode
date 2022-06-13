@@ -13,10 +13,6 @@ const homeReducer = createSlice({
     }
   }
 })
-export const getTab = (state) => {
-  debugger
-  return state.home.tab
-}
 export const { updateTab } = homeReducer.actions
 
 export default homeReducer.reducer
