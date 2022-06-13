@@ -9,7 +9,8 @@ function User () {
   let { loginname } = useParams()
   const [userdata, setuserdata] = useState({});
   const [loading, setloading] = useState(true);
-  const userid = useSelector(state => state.user.userid)
+  // 监听redux方法
+  // const userid = useSelector(state => state.user.userid)
   useEffect(() => {
     getUser(loginname).then(res => {
       if (res.data.success) {
@@ -20,7 +21,7 @@ function User () {
       }
     }).catch((err) => console.log(err))
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userid])
+  }, [loginname])
   return (
     <div className="user">
       {!loading && <div>
