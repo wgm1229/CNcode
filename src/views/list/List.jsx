@@ -32,13 +32,11 @@ const SimplifyList = () => {
     getTopics(params).then(res => {
       if (res.data.success) {
         setList(res.data.data);
+        setInitLoading(false);
       } else {
         console.log('获取list失败');
       }
     }).catch((err) => { console.log(err); })
-      .finally(() => {
-        setInitLoading(false);
-      })
   }
   useEffect(() => {
     setCurrent(1)

@@ -14,9 +14,9 @@ function Article () {
     getTopicDetail(id).then((res) => {
       if (res.data.success) {
         setdetail(res.data.data)
+        setloading(false)
       }
     }).catch(err => console.log(err))
-      .finally(() => setloading(false))
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (

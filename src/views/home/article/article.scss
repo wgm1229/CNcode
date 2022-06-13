@@ -6,7 +6,9 @@
   overflow: auto;
 
   .ant-card {
-    .content {
+
+    .content,
+    .markdown-text {
       img {
         width: 100%;
       }

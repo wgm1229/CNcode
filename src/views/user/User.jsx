@@ -1,6 +1,6 @@
 import { Avatar, Card, List } from "antd"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { getUser } from '../../api/api'
 import Author from "../../components/atuhor/Author"
 import './user.scss'
@@ -37,7 +37,7 @@ function User () {
             renderItem={(item) => (
               <List.Item>
                 <List.Item.Meta
-                  title={item.title}
+                  title={<Link to={`/article/${item.id}`}>{item.title}</Link>}
                   description={
                     '最后修改：' + item.last_reply_at.split('T')[0]
                   }
@@ -54,7 +54,7 @@ function User () {
               <List.Item>
                 <List.Item.Meta
                   avatar={<Avatar src={item.author.avatar_url} />}
-                  title={item.title}
+                  title={<Link to={`/article/${item.id}`}>{item.title}</Link>}
                   description={
                     <Author
                       data={{
