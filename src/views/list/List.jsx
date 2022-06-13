@@ -10,19 +10,20 @@ import Author from '../../components/atuhor/Author';
 const SimplifyList = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [list, setList] = useState([]);
-  const [page, setPage] = useState(1)
+  const [current, setCurrent] = useState(1)
   const tab = useSelector(state => state.home.tab)
   const pagination = {
     size: 'small',
     total: 1000,
+    current: current,
     defaultPageSize: 20,
     defaultCurrent: 1,
     showSizeChanger: false,
     onChange: (currentPage) => {
-      setPage(currentPage)
+      getList(currentPage)
     }
   }
-  const getList = () => {
+  const getList = (page) => {
     let params = {
       page: page,
       limit: 20,
@@ -40,10 +41,10 @@ const SimplifyList = () => {
       })
   }
   useEffect(() => {
-    getList()
+    setCurrent(1)
+    getList(1)
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, tab]);
-
+  }, [tab])
   return (
     <List
       className="list"
