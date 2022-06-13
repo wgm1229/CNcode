@@ -1,0 +1,64 @@
+@use '../../static/scss/flex.scss' as flex;
+
+.user {
+  height: 100%;
+  padding: 10px 15%;
+
+  .top {
+    .ant-card-body {
+      padding: 5px 10px;
+      @extend %flexYC;
+
+      .ant-avatar {
+        width: 100px;
+        height: 100px;
+      }
+
+      p {
+        width: 100%;
+        @extend %flexX;
+        justify-content: space-between;
+        margin: 10px 0 0;
+        padding: 0 15px;
+
+        i {
+          font-style: normal;
+          color: flex.$success;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin-top: 10px;
+
+    .ant-card-head {
+      min-height: 0;
+      font-size: 14px;
+      background-color: flex.$garybacground;
+
+      .ant-card-head-title {
+        padding: 10px 0;
+        font-weight: bold;
+      }
+    }
+
+    .ant-card-body {
+      padding: 0 20px;
+
+      .ant-list-item-meta-title {
+        cursor: pointer;
+
+        &:hover {
+          color: flex.$success;
+        }
+
+      }
+
+      .ant-list-item-meta-description {
+        @extend %flexX;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

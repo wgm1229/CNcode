@@ -9,6 +9,7 @@ import About from './views/about/About.jsx'
 import Course from './views/course/Course.jsx'
 import SimplifyList from "./views/list/List";
 import Article from "./views/home/article/Article";
+import User from "./views/user/User";
 function App () {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ function App () {
         <Route path="/article/:id" element={<Article />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/course" element={<Course />}></Route>
+        <Route path="/user/:loginname" element={<User />}></Route>
       </Routes>
     </BrowserRouter>
 
