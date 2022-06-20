@@ -20,7 +20,7 @@ function Home () {
     <Fragment>
       <div className="home">
         <div className="leftNav" >
-          {leftNav.map(nav => <Link
+          {leftNav.map(nav => nav.listshow && <Link
             className={[acvtiveNav === nav.value ? 'active' : ''].join(' ')}
             key={nav.value}
             to={`/home/${nav.value}`}
