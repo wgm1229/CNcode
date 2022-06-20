@@ -6,7 +6,7 @@ import './TopNav.scss'
 const items = [
   {
     label: '首页',
-    key: 'home',
+    key: 'home/all',
     icon: <HomeOutlined />,
   },
   {
