@@ -31,3 +31,19 @@ $garybacground: #fafafa;
 %time {
   color: $dark;
 }
+
+%card {
+
+  .content,
+  .markdown-text {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+%box {
+  height: 100%;
+  padding: 10px 15%;
+  overflow: auto;
+}
