@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { updateTab } from "../../store/homeReducer"
 import Footer from "../../components/footer/Footer"
 import topicType from "../../static/js/topicType"
-import './home.scss'
+import './Home.scss'
 function Home () {
   const dispatch = useDispatch()
   const leftNav = topicType
