@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 function Home() {
-  return <div>home</div>;
+  const [str, setStr] = useState<string>('123');
+  return <div>{str}</div>;
 }
 export default Home;
