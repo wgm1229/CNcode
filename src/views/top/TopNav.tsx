@@ -3,6 +3,7 @@ import { Menu } from 'antd'
 import { useState } from 'react'
 import './TopNav.scss'
 import logo from '../../static/images/logo.svg'
+import { useNavigate } from 'react-router-dom'
 const items = [
   {
     label: '首页',
@@ -24,10 +25,10 @@ const items = [
 /* 顶部导航 */
 const TopNav: React.FC = () => {
   const [current, setCurrent] = useState('mail')
-
+  const navigate = useNavigate()
   const onClick = (e: any) => {
-    console.log('click ', e)
     setCurrent(e.key)
+    navigate(`/${e.key}`)
   }
   return (
     <div className="topnav">
