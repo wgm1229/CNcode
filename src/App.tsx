@@ -1,14 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './views/home/Home'
-import Top from './views/top/Top'
+import TopNav from './views/top/TopNav'
 import Footer from './views/footer/Footer'
+import Course from './views/course/Course'
+import About from './views/about/About'
 function App() {
   return (
     <BrowserRouter>
-      <Top />
+      <TopNav />
       <main>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/Course" element={<Course />}></Route>
+          <Route path="/About" element={<About />}></Route>
         </Routes>
       </main>
       <Footer />

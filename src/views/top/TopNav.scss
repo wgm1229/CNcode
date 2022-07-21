@@ -1,0 +1,24 @@
+@use '../../static/scss/flex.scss' as flex;
+.topnav {
+  width: 100%;
+  @extend %flexC;
+  justify-content: start;
+  background-color: #001529;
+
+  img {
+    width: 160px;
+    height: 73%;
+    border-right: 1px solid #ccc;
+    padding: 0 20px;
+  }
+
+  .nav {
+    .ant-menu-item:hover {
+      background-color: #66666630 !important;
+    }
+
+    .ant-menu-item-selected {
+      background-color: #66666630 !important;
+    }
+  }
+}
