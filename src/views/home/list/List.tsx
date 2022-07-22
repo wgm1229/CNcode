@@ -20,6 +20,7 @@ type list = {
   visit_count: number
 }
 function SimplifyList(props: { tab: string }) {
+  const [loading, setLoading] = useState<boolean>(false)
   const [list, setList] = useState<Array<list>>([]) //列表数据源
   const [currPage, setcurrPage] = useState<number>(1) //当前页数
   const pagination: PaginationProps = {
@@ -37,22 +38,28 @@ function SimplifyList(props: { tab: string }) {
   }
   /* 获取list列表 */
   function getList(page: number, tab: string) {
+    setLoading(true)
     const param: getTopicsParam = {
       page,
       limit: 20,
       tab
     }
-    getTopics(param).then((res: any) => {
-      if (res.data.success) {
-        setList(res.data.data)
-      } else {
-        console.log('获取list失败')
-      }
-    })
+    getTopics(param)
+      .then((res: any) => {
+        if (res.data.success) {
+          setList(res.data.data)
+        } else {
+          console.log('获取list失败')
+        }
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false)
+      })
   }
   useEffect(() => {
     getList(currPage, props.tab)
-  }, [currPage])
+  }, [currPage, props.tab])
   useEffect(() => {
     setcurrPage(1)
   }, [props.tab])
@@ -60,6 +67,7 @@ function SimplifyList(props: { tab: string }) {
     <List
       className="list"
       itemLayout="horizontal"
+      loading={loading}
       pagination={pagination}
       dataSource={list}
       renderItem={(item: list) => (
