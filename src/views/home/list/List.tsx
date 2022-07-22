@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Avatar, List } from 'antd'
 import { PaginationProps } from 'antd'
 import { getTopics, getTopicsParam } from '../../../api/api'
+import TypeTag from '../../../components/typetag/TypeTag'
 import './list.scss'
 type list = {
   author: {
@@ -18,8 +19,8 @@ type list = {
   top: boolean
   visit_count: number
 }
-function SimplifyList() {
-  const [list, setList] = useState<Array<list>>() //列表数据源
+function SimplifyList(props: { tab: string }) {
+  const [list, setList] = useState<Array<list>>([]) //列表数据源
   const [currPage, setcurrPage] = useState<number>(1) //当前页数
   const pagination: PaginationProps = {
     //分页配置
@@ -50,8 +51,11 @@ function SimplifyList() {
     })
   }
   useEffect(() => {
-    getList(currPage, 'all')
+    getList(currPage, props.tab)
   }, [currPage])
+  useEffect(() => {
+    setcurrPage(1)
+  }, [props.tab])
   return (
     <List
       className="list"
@@ -62,7 +66,12 @@ function SimplifyList() {
         <List.Item actions={[`回复：${item.reply_count}`, `访问：${item.visit_count}`]}>
           <List.Item.Meta
             avatar={<Avatar src={item.author.avatar_url} />}
-            title={<a>{item.title}</a>}
+            title={
+              <div>
+                <TypeTag data={item} />
+                <span>{item.title}</span>
+              </div>
+            }
             description={
               <div>
                 <span className="name">{item.author.loginname}</span>
