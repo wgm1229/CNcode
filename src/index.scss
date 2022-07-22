@@ -5,14 +5,12 @@ body {
   margin: 0pt;
   height: 100%;
   width: 100%;
-  font-family: 微软雅黑;
   background-color: #efeeec;
 }
 
 #root {
   height: 100%;
   width: 100%;
-  font-family: 微软雅黑;
   background-color: #fff;
   @extend %flexYC;
   main {

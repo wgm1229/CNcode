@@ -21,7 +21,7 @@ $border-color: #e8e8e8;
         background-color: #f9fce3;
       }
       &:hover {
-        background-color: #f9fce3;
+        color: flex.$success;
       }
     }
   }
@@ -29,5 +29,6 @@ $border-color: #e8e8e8;
     flex: 1;
     border: 1px solid $border-color;
     border-left: unset;
+    // overflow: auto;
   }
 }

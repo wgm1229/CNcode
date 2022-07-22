@@ -1,5 +1,6 @@
-import './home.scss'
 import { useState } from 'react'
+import './home.scss'
+import List from './list/List'
 type nav = {
   label: string
   value: string
@@ -47,7 +48,9 @@ function Home() {
           )
         })}
       </div>
-      <div className="right">right</div>
+      <div className="right">
+        <List />
+      </div>
     </div>
   )
 }
