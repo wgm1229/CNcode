@@ -2,9 +2,9 @@ import { Tag } from 'antd'
 import topicType, { topicTypeItem } from '../../static/js/topicType'
 import './typetag.scss'
 type data = {
-  top: boolean
-  good: boolean
-  tab: string
+  top: boolean | undefined
+  good: boolean | undefined
+  tab: string | undefined
 }
 const getType = (data: data) => {
   //1、置顶 2、精华 3、tab类型

@@ -1,0 +1,11 @@
+@use '../../../static/scss/flex.scss' as flex;
+.article {
+  padding: 10px 100px;
+  img {
+    width: 100%;
+  }
+  .reply_user {
+    @extend %flexC;
+    justify-content: space-between;
+  }
+}

@@ -4,6 +4,7 @@ import { PaginationProps } from 'antd'
 import { getTopics, getTopicsParam } from '../../../api/api'
 import TypeTag from '../../../components/typetag/TypeTag'
 import './list.scss'
+import { Link } from 'react-router-dom'
 type list = {
   author: {
     loginname: string
@@ -75,10 +76,10 @@ function SimplifyList(props: { tab: string }) {
           <List.Item.Meta
             avatar={<Avatar src={item.author.avatar_url} />}
             title={
-              <div>
+              <Link to={`/article/${item.id}`}>
                 <TypeTag data={item} />
                 <span>{item.title}</span>
-              </div>
+              </Link>
             }
             description={
               <div>
