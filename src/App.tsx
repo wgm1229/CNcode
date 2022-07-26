@@ -6,6 +6,7 @@ import Footer from './views/footer/Footer'
 import Course from './views/course/Course'
 import About from './views/about/About'
 import Article from './views/home/article/Article'
+import User from './views/user/User'
 type path = {
   to: string
 }
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Redirect to={'/home'} />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/article/:id" element={<Article />}></Route>
+          <Route path="/user/:loginname" element={<User />}></Route>
           <Route path="/Course" element={<Course />}></Route>
           <Route path="/About" element={<About />}></Route>
         </Routes>

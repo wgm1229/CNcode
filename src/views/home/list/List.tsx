@@ -5,6 +5,7 @@ import { getTopics, getTopicsParam } from '../../../api/api'
 import TypeTag from '../../../components/typetag/TypeTag'
 import './list.scss'
 import { Link } from 'react-router-dom'
+import Author from '../../../components/author/Author'
 type list = {
   author: {
     loginname: string
@@ -81,12 +82,7 @@ function SimplifyList(props: { tab: string }) {
                 <span>{item.title}</span>
               </Link>
             }
-            description={
-              <div>
-                <span className="name">{item.author.loginname}</span>
-                <span>发表于：{item.create_at.split('T')[0]}</span>
-              </div>
-            }
+            description={<Author hiddenType={true} hiddenImg={true} loginname={item.author.loginname} create_at={item.create_at}></Author>}
           />
         </List.Item>
       )}

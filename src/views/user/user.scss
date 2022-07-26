@@ -1,0 +1,53 @@
+@use '../../static/scss/flex.scss' as flex;
+.user {
+  @extend %box;
+  @extend %card;
+  .top {
+    .ant-card-body {
+      @extend %flexYC;
+      padding: 5px 24px !important;
+      .header {
+        width: 100px;
+        height: 100px;
+      }
+      p {
+        width: 100%;
+        @extend %flexC;
+        justify-content: space-between;
+        margin: 10px 0 0;
+        i {
+          color: flex.$success;
+          font-style: unset;
+        }
+      }
+    }
+  }
+  .ant-card {
+    margin-top: 10px;
+    .ant-card-head {
+      min-height: 0;
+      font-size: 14px;
+      background-color: flex.$garybacground;
+    }
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+  .ant-card-head-title {
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  .ant-list-item-meta {
+    width: 100%;
+    padding: 0 24px;
+    span {
+      @extend %flexX;
+      justify-content: flex-end;
+      color: flex.$graytext;
+    }
+    .author {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
