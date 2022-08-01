@@ -6,6 +6,7 @@ import TypeTag from '../../../components/typetag/TypeTag'
 import './list.scss'
 import { Link } from 'react-router-dom'
 import Author from '../../../components/author/Author'
+//单条列表数据
 type list = {
   author: {
     loginname: string
@@ -22,7 +23,7 @@ type list = {
   visit_count: number
 }
 function SimplifyList(props: { tab: string }) {
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false) //加载中
   const [list, setList] = useState<Array<list>>([]) //列表数据源
   const [currPage, setcurrPage] = useState<number>(1) //当前页数
   const pagination: PaginationProps = {
@@ -60,6 +61,7 @@ function SimplifyList(props: { tab: string }) {
       })
   }
   useEffect(() => {
+    //监听当前页数、左侧tab切换
     getList(currPage, props.tab)
   }, [currPage, props.tab])
   useEffect(() => {

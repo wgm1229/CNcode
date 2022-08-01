@@ -32,6 +32,7 @@ type contentData = {
 function Article() {
   const { id } = useParams<string>()
   const [Content, setContent] = useState<contentData>({
+    //文章内容数据
     title: '',
     author: { avatar_url: '', loginname: '' },
     author_id: '',

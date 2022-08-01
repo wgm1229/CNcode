@@ -26,7 +26,7 @@ type userDetail = {
 }
 function User() {
   const { loginname } = useParams<string>() //姓名
-  const [UserDetail, setUserDetail] = useState<userDetail>({
+  const [UserDetail, setUserDetail] = useState<userDetail>({//用户详情
     avatar_url: '',
     create_at: '',
     githubUsername: '',
