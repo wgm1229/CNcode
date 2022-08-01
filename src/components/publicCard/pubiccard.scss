@@ -1,0 +1,13 @@
+@use '../../static/scss/flex.scss' as flex;
+.publicCard {
+  @extend %box;
+  .ant-card {
+    margin-top: 10px;
+    .ant-card-head {
+      min-height: 0;
+      font-size: 14px;
+      background-color: flex.$garybacground;
+      font-weight: bold;
+    }
+  }
+}
