@@ -5,10 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getTopicDetail } from '../../../api/api'
 import Author from '../../../components/author/Author'
 import './article.scss'
-type author = {
-  avatar_url: string
-  loginname: string
-}
+import { author } from '../../../static/js/publicTs'
 type repliesItem = {
   id: string
   author: author

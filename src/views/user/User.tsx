@@ -5,10 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getUser } from '../../api/api'
 import Author from '../../components/author/Author'
 import './user.scss'
-type author = {
-  loginname: string
-  avatar_url: string
-}
+import { author } from '../../static/js/publicTs'
 type reply = {
   author: author
   id: string
@@ -26,7 +23,8 @@ type userDetail = {
 }
 function User() {
   const { loginname } = useParams<string>() //姓名
-  const [UserDetail, setUserDetail] = useState<userDetail>({//用户详情
+  const [UserDetail, setUserDetail] = useState<userDetail>({
+    //用户详情
     avatar_url: '',
     create_at: '',
     githubUsername: '',

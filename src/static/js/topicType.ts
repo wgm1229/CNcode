@@ -1,9 +1,18 @@
-export declare type topicTypeItem = {
-  value: string
-  label: string
+/**
+ * value：tab接口请求参数；
+ * label：tab标题；
+ * color：tab颜色；
+ * listshow：是否显示为左侧菜单；
+ */
+export declare interface topicTypeItem {
+  value: topic_value
+  label: topic_label
   color?: string
   listshow: boolean
 }
+//字面量类型
+export declare type topic_label = '全部' | '精华' | '分享' | '问答' | '招聘' | '测试' | '置顶'
+export declare type topic_value = 'all' | 'good' | 'share' | 'ask' | 'job' | 'dev' | 'top'
 const topicType: Array<topicTypeItem> = [
   {
     value: 'all',

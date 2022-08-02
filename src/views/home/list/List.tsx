@@ -6,12 +6,10 @@ import TypeTag from '../../../components/typetag/TypeTag'
 import './list.scss'
 import { Link } from 'react-router-dom'
 import Author from '../../../components/author/Author'
+import { author } from '../../../static/js/publicTs'
 //单条列表数据
 type list = {
-  author: {
-    loginname: string
-    avatar_url: string
-  }
+  author: author
   title: string
   author_id: string
   create_at: string
