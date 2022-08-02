@@ -46,6 +46,7 @@ function SimplifyList(props: { tab: string }) {
       tab
     }
     getTopics(param)
+      // eslint-disable-next-line
       .then((res: any) => {
         if (res.data.success) {
           setList(res.data.data)
