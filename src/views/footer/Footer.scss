@@ -1,0 +1,9 @@
+@use '../../static/scss/flex.scss' as flex;
+
+.footer {
+  height: 50px;
+  @extend %flexC;
+  font-size: 14px;
+  background: #f0f2f5;
+  color: rgba(0, 0, 0, 0.65);
+}

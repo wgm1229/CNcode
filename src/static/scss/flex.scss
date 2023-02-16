@@ -1,0 +1,49 @@
+$success: #80bd01;
+$dark: rgba(0, 0, 0, 0.65);
+$graytext: #999999;
+$garybacground: #fafafa;
+
+%flexYC {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+%flexC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flexX {
+  display: flex;
+}
+
+%flexY {
+  display: flex;
+  flex-direction: column;
+}
+
+%name {
+  color: $success;
+}
+
+%time {
+  color: $dark;
+}
+
+%card {
+
+  .content,
+  .markdown-text {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+%box {
+  height: 100%;
+  padding: 10px 15%;
+  overflow: auto;
+}
