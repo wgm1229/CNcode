@@ -27,7 +27,7 @@ const navlist = [
 
 class Nav extends Component {
   state = {
-    currentNav: "",
+    currentNav: "home",
   };
   onClick = (e) => {
     this.setState({ currentNav: e.key });
@@ -35,13 +35,13 @@ class Nav extends Component {
   render() {
     return (
       <div className="topnav">
-        <img src={require("../../static/images/logo.svg").default}></img>
+        <img src={require("../../static/images/logo.svg").default} alt=""></img>
         <Menu
           className="nav"
           mode="horizontal"
           theme="dark"
           items={navlist}
-          selectedKeys={[this.currentNav]}
+          selectedKeys={[this.state.currentNav]}
           onClick={this.onClick}
         />
       </div>
