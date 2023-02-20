@@ -1,9 +1,9 @@
-import { Component } from "react";
+import { Component } from "react"
 class About extends Component {
-  state = {};
+  state = {}
   render() {
-    return <div>About</div>;
+    return <div>About</div>
   }
 }
 
-export default About;
+export default About

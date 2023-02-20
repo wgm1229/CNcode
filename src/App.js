@@ -1,8 +1,8 @@
-import TopNav from "@/views/topNav/TopNav.js";
-import Footer from "@/views/footer/Footer.js";
+import TopNav from "@/views/topNav/TopNav.js"
+import Footer from "@/views/footer/Footer.js"
 
-import { RouterProvider } from "react-router-dom";
-import router from "./router/index";
+import { RouterProvider } from "react-router-dom"
+import router from "./router/index"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <RouterProvider router={router} />
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

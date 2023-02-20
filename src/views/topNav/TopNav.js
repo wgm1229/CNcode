@@ -1,11 +1,11 @@
-import { Component } from "react";
+import { Component } from "react"
 import {
   HomeOutlined,
   BookOutlined,
   ExclamationCircleOutlined,
-} from "@ant-design/icons";
-import { Menu } from "antd";
-import "./TopNav.scss";
+} from "@ant-design/icons"
+import { Menu } from "antd"
+import "./TopNav.scss"
 
 const navlist = [
   {
@@ -23,15 +23,15 @@ const navlist = [
     key: "about",
     icon: <ExclamationCircleOutlined />,
   },
-];
+]
 
 class Nav extends Component {
   state = {
     currentNav: "home",
-  };
+  }
   onClick = (e) => {
-    this.setState({ currentNav: e.key });
-  };
+    this.setState({ currentNav: e.key })
+  }
   render() {
     return (
       <div className="topnav">
@@ -45,8 +45,8 @@ class Nav extends Component {
           onClick={this.onClick}
         />
       </div>
-    );
+    )
   }
 }
 
-export default Nav;
+export default Nav

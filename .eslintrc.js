@@ -1,0 +1,33 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+  plugins: ["react", "react-hooks"],
+  rules: {
+    "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+    "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
+    "no-debugger": "off",
+    "no-unused-vars": "off", //关闭未使用变量报错
+    "react/prop-types": "off", //忽略props报错
+    semi: ["error", "never"], //不加分号
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+};

@@ -1,12 +1,12 @@
-import { Component } from "react";
-import { Link, Outlet } from "react-router-dom";
-import topicType from "@/static/js/topicType.js";
-import "./Home.scss";
+import { Component } from "react"
+import { Link, Outlet } from "react-router-dom"
+import topicType from "@/static/js/topicType.js"
+import "./Home.scss"
 class Home extends Component {
   state = {
     leftNav: topicType,
     acvtiveNav: "",
-  };
+  }
   render() {
     return (
       <div className="home">
@@ -24,15 +24,15 @@ class Home extends Component {
                 >
                   {nav.label}
                 </Link>
-              )
+              ),
           )}
         </div>
         <div className="right">
           <Outlet />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home
