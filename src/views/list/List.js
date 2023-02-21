@@ -1,9 +1,15 @@
 import { Component } from "react"
+import { Link } from "react-router-dom"
 import { Avatar, List } from "antd"
 import { getTopics } from "@/api/api.js"
-import Author from "../../components/author/Author"
+import Author from "@/components/author/Author"
+import TypeTag from "@/components/TypeTag"
+import withRouter from "@/static/js/withRouter"
 import "./list.scss"
 class SimplifyList extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     loading: false,
     page: 1,
@@ -16,7 +22,7 @@ class SimplifyList extends Component {
     let params = {
       page: 1,
       limit: this.state.limit,
-      tab: "all",
+      tab: this.props.params.type, //路由的参数type
     }
     this.setState({
       loading: true,
@@ -28,7 +34,7 @@ class SimplifyList extends Component {
     this.getList({
       page: currentPage,
       limit: this.state.limit,
-      tab: "all",
+      tab: this.props.params.type,
     })
   }
   getList = (params) => {
@@ -78,7 +84,12 @@ class SimplifyList extends Component {
           >
             <List.Item.Meta
               avatar={<Avatar src={item.author.avatar_url} />}
-              title={item.title}
+              title={
+                <Link>
+                  <TypeTag data={item}></TypeTag>
+                  <span className="list_item_title">{item.title}</span>
+                </Link>
+              }
               description={
                 <Author
                   data={{
@@ -95,4 +106,4 @@ class SimplifyList extends Component {
   }
 }
 
-export default SimplifyList
+export default withRouter(SimplifyList)
