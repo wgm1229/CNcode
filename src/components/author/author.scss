@@ -1,0 +1,16 @@
+@use '../../static/scss/flex.scss' as flex;
+
+.profilepicture {
+  margin-right: 5px !important;
+}
+
+.name {
+  @extend %name;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.time {
+  @extend %time;
+  color: flex.$graytext;
+}

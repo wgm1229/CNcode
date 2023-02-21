@@ -1,0 +1,36 @@
+@use '../../static/scss/flex.scss' as flex;
+
+.ant-list.list {
+  height: 100%;
+  padding-left: 5px;
+  @extend %flexY;
+
+  .ant-spin-nested-loading {
+    flex: 1;
+    overflow: hidden;
+
+    .ant-spin-container {
+      overflow: auto;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      .ant-list-item-meta-title {
+        @extend %time;
+      }
+
+      .list_item_title {
+        margin-left: 5px;
+      }
+
+      .name {
+        margin-right: 10px;
+        @extend %name;
+      }
+    }
+  }
+
+  .ant-list-pagination {
+    margin: 10px;
+  }
+}
