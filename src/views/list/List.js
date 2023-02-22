@@ -18,17 +18,13 @@ class SimplifyList extends Component {
   }
   //相当于created
   // eslint-disable-next-line react/no-deprecated
-  componentWillMount() {
-    let params = {
-      page: 1,
-      limit: this.state.limit,
-      tab: this.props.params.type, //路由的参数type
+  componentWillMount () {
+    this.getTypeList()
+  }
+  componentDidUpdate (prevProps, prevState) {
+    if (prevProps.params.type !== this.props.params.type) {
+      this.getTypeList()
     }
-    this.setState({
-      loading: true,
-      current: 1,
-    })
-    this.getList(params)
   }
   onChange = (currentPage) => {
     this.getList({
@@ -36,6 +32,18 @@ class SimplifyList extends Component {
       limit: this.state.limit,
       tab: this.props.params.type,
     })
+  }
+  getTypeList () {
+    let params = {
+        page: 1,
+        limit: this.state.limit,
+        tab: this.props.params.type, //路由的参数type
+      }
+      this.setState({
+        loading: true,
+        current: 1,
+      })
+      this.getList(params)
   }
   getList = (params) => {
     getTopics(params)
