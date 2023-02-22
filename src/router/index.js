@@ -3,6 +3,7 @@ import Home from "@/views/home/Home.js"
 import Course from "@/views/course/Course.js"
 import About from "@/views/about/About.js"
 import SimplifyList from "@/views/list/List.js"
+import Article from '@/views/home/article/Article.js'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         element: <SimplifyList />,
       },
     ],
+  },
+  {
+    path: "/article/:id",
+    element: <Article />,
   },
   {
     path: "/Course",

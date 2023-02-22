@@ -93,7 +93,7 @@ class SimplifyList extends Component {
             <List.Item.Meta
               avatar={<Avatar src={item.author.avatar_url} />}
               title={
-                <Link>
+                <Link to={`/article/${item.id}`}>
                   <TypeTag data={item}></TypeTag>
                   <span className="list_item_title">{item.title}</span>
                 </Link>
