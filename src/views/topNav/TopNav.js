@@ -6,11 +6,12 @@ import {
 } from "@ant-design/icons"
 import { Menu } from "antd"
 import "./TopNav.scss"
+import withRouter from "../../static/js/withRouter"
 
 const navlist = [
   {
     label: "首页",
-    key: "home",
+    key: "home/all",
     icon: <HomeOutlined />,
   },
   {
@@ -26,11 +27,15 @@ const navlist = [
 ]
 
 class Nav extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     currentNav: "home",
   }
   onClick = (e) => {
     this.setState({ currentNav: e.key })
+    this.props.navigate(`/${e.key}`)
   }
   render() {
     return (
@@ -49,4 +54,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav
+export default withRouter(Nav)
