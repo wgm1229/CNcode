@@ -5,6 +5,8 @@ import { getTopics } from "@/api/api.js"
 import Author from "@/components/author/Author"
 import TypeTag from "@/components/TypeTag"
 import withRouter from "@/static/js/withRouter"
+import { connect } from "react-redux"
+import { updateTab } from "@/store/homeReducer"
 import "./list.scss"
 class SimplifyList extends Component {
   constructor(props) {
@@ -18,11 +20,11 @@ class SimplifyList extends Component {
   }
   //相当于created
   // eslint-disable-next-line react/no-deprecated
-  componentWillMount () {
+  componentWillMount() {
     this.getTypeList()
   }
-  componentDidUpdate (prevProps, prevState) {
-    if (prevProps.params.type !== this.props.params.type) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.tab !== this.props.tab) {
       this.getTypeList()
     }
   }
@@ -30,20 +32,20 @@ class SimplifyList extends Component {
     this.getList({
       page: currentPage,
       limit: this.state.limit,
-      tab: this.props.params.type,
+      tab: this.props.tab,
     })
   }
-  getTypeList () {
+  getTypeList() {
     let params = {
-        page: 1,
-        limit: this.state.limit,
-        tab: this.props.params.type, //路由的参数type
-      }
-      this.setState({
-        loading: true,
-        current: 1,
-      })
-      this.getList(params)
+      page: 1,
+      limit: this.state.limit,
+      tab: this.props.tab, //路由的参数type
+    }
+    this.setState({
+      loading: true,
+      current: 1,
+    })
+    this.getList(params)
   }
   getList = (params) => {
     getTopics(params)
@@ -113,5 +115,9 @@ class SimplifyList extends Component {
     )
   }
 }
-
-export default withRouter(SimplifyList)
+const mapStateToProps = (state) => ({
+  tab: state.home.tab,
+})
+export default connect(mapStateToProps, {
+  updateTab,
+})(withRouter(SimplifyList))

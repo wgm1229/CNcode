@@ -7,11 +7,12 @@ import {
 import { Menu } from "antd"
 import "./TopNav.scss"
 import withRouter from "../../static/js/withRouter"
+import { connect } from "react-redux"
 
 const navlist = [
   {
     label: "首页",
-    key: "home/all",
+    key: "home",
     icon: <HomeOutlined />,
   },
   {
@@ -35,7 +36,12 @@ class Nav extends Component {
   }
   onClick = (e) => {
     this.setState({ currentNav: e.key })
-    this.props.navigate(`/${e.key}`)
+    //返回首页时，走store中的tab类型
+    if (e.key.indexOf("home") !== -1) {
+      this.props.navigate(`/${e.key}/${this.props.tab}`)
+    } else {
+      this.props.navigate(`/${e.key}`)
+    }
   }
   render() {
     return (
@@ -53,5 +59,7 @@ class Nav extends Component {
     )
   }
 }
-
-export default withRouter(Nav)
+const mapStateToProps = (state) => ({
+  tab: state.home.tab,
+})
+export default connect(mapStateToProps)(withRouter(Nav))
