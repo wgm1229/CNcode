@@ -1,11 +1,21 @@
 import { Component } from "react"
 import { Link, Outlet } from "react-router-dom"
 import topicType from "@/static/js/topicType.js"
+import withRouter from "../../static/js/withRouter"
 import "./Home.scss"
 class Home extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     leftNav: topicType,
     acvtiveNav: "",
+  }
+  // eslint-disable-next-line react/no-deprecated
+  componentWillMount() {
+    this.setState({
+      acvtiveNav: this.props.params.type,
+    })
   }
   render() {
     return (
@@ -35,4 +45,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default withRouter(Home)
