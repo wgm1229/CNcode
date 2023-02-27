@@ -3,7 +3,8 @@ import Home from "@/views/home/Home.js"
 import Course from "@/views/course/Course.js"
 import About from "@/views/about/About.js"
 import SimplifyList from "@/views/list/List.js"
-import Article from '@/views/home/article/Article.js'
+import Article from "@/views/home/article/Article.js"
+import User from "@/views/user/User"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/article/:id",
     element: <Article />,
+  },
+  {
+    path: "/user/:loginname",
+    element: <User />,
   },
   {
     path: "/Course",
